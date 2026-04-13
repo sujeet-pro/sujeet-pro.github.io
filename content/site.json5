@@ -1,0 +1,17 @@
+{
+  origin: "https://projects.sujeet.pro",
+  name: "Sujeet's Projects",
+  title: "Sujeet's Projects",
+  description: "Open source projects and tools by Sujeet Jaiswal.",
+  basePath: "",
+  language: "en",
+  navItems: [],
+  social: {
+    github: { handle: "sujeet-pro", url: "https://github.com/sujeet-pro" },
+    linkedin: { handle: "sujeetkrjaiswal", url: "https://www.linkedin.com/in/sujeetkrjaiswal/" },
+  },
+  copyright: {
+    holder: "Sujeet Jaiswal",
+    startYear: 2024,
+  },
+}

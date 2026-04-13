@@ -1,0 +1,128 @@
+<!-- pagesmith-ai:shared-llms:start -->
+# Pagesmith
+
+> Pagesmith is a filesystem-first content toolkit with `@pagesmith/core` and `@pagesmith/docs`.
+
+## @pagesmith/core — Content Layer
+
+Schema-validated content collections, lazy markdown rendering with a built-in Shiki-backed code renderer, JSX runtime, CSS exports, and Vite plugins.
+
+### Basic Setup (Vite Plugin)
+
+```ts
+import { createContentLayer, defineCollection, defineConfig, z } from '@pagesmith/core'
+
+const posts = defineCollection({
+  loader: 'markdown',
+  directory: 'content/posts',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).default([]),
+  }),
+})
+
+const layer = createContentLayer(
+  defineConfig({
+    collections: { posts },
+  }),
+)
+
+const entries = await layer.getCollection('posts')
+const rendered = await entries[0]?.render()
+```
+
+### Vite Integration
+
+```ts
+import { pagesmithContent, pagesmithSsg } from '@pagesmith/core/vite'
+import collections from './content.config'
+
+export default defineConfig({
+  plugins: [
+    pagesmithContent({ collections }),
+    pagesmithSsg({ entry: './src/entry-server.tsx' }),
+  ],
+})
+```
+
+Import collections as virtual modules: `import posts from 'virtual:content/posts'`
+
+## @pagesmith/docs — Documentation Sites
+
+Convention-based docs with default theme, Pagefind search, sidebar generation, and layout overrides.
+
+### Basic Setup
+
+```json5
+// pagesmith.config.json5
+{
+  $schema: './node_modules/@pagesmith/docs/schemas/pagesmith-config.schema.json',
+  name: 'Acme Docs',
+  title: 'Acme Docs',
+  origin: 'https://acme.github.io',
+  basePath: '/acme-docs',
+  description: 'Multi-package documentation',
+  contentDir: './content',
+  outDir: './gh-pages',
+  maintainer: {
+    name: 'Sujeet Jaiswal',
+    link: 'https://sujeet.pro',
+  },
+  copyright: {
+    projectName: 'Acme Docs',
+    startYear: 2024,
+    endYear: null,
+  },
+  footerLinks: [
+    {
+      header: 'Docs',
+      links: [
+        { label: 'Guide', path: '/guide' },
+        { label: 'Reference', path: '/reference' },
+      ],
+    },
+  ],
+  editLink: {
+    repo: 'https://github.com/acme/docs',
+  },
+  search: { enabled: true },
+}
+```
+
+```text
+content/
+  README.md                 # Home page (DocHome layout)
+  guide/
+    meta.json5              # Section ordering
+    getting-started/
+      README.md             # A page
+  reference/
+    api/README.md
+```
+
+### Layout Overrides
+
+```json5
+{
+  theme: {
+    layouts: {
+      home: './theme/layouts/DocHome.tsx',
+      page: './theme/layouts/DocPage.tsx',
+      notFound: './theme/layouts/DocNotFound.tsx',
+    },
+  },
+}
+```
+
+### CLI
+
+```bash
+pagesmith init --ai  # Initialize config + content + AI integrations
+pagesmith dev        # Development server
+pagesmith build      # Production build
+pagesmith preview    # Preview built site
+pagesmith mcp --stdio # Start MCP server for AI agents
+```
+<!-- pagesmith-ai:shared-llms:end -->

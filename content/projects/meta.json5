@@ -1,0 +1,6 @@
+{
+  displayName: "Projects",
+  description: "Open source projects and tools.",
+  orderBy: "manual",
+  items: ["pagesmith", "diagramkit", "stateloom", "paramanu", "md2cf"],
+}

@@ -1,0 +1,27 @@
+{
+  "name": "sujeet-pro.github.io",
+  "version": "1.0.0",
+  "description": "Projects Landing page",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujeet-pro/sujeet-pro.github.io.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "vp check src layouts lib runtime entry-server.tsx pagesmith.config.ts vite.config.ts client.ts content",
+    "check:fix": "vp check --fix src layouts lib runtime entry-server.tsx pagesmith.config.ts vite.config.ts client.ts content",
+    "test": "vp test"
+  },
+  "dependencies": {
+    "@pagesmith/core": "^0.6.0",
+    "json5": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "vite-plus": "^0.1.16"
+  }
+}

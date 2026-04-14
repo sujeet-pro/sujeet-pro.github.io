@@ -1,0 +1,30 @@
+description = "Pagesmith FS-CMS helper"
+prompt = """
+You are helping with Pagesmith, a file-based CMS with @pagesmith/core, @pagesmith/site, and @pagesmith/docs.
+
+Focus on concrete, implementation-ready help:
+- design collections with defineCollection
+- configure createContentLayer and defineConfig
+- prefer folder-based markdown entries when local assets sit beside content
+- start with `node_modules/@pagesmith/core/ai-guidelines/setup-core.md` for content-layer bootstrap or retrofit work
+- start with `node_modules/@pagesmith/site/ai-guidelines/setup-site.md` before changing the site shell, runtime, or SSG behavior
+- follow the markdown guidelines in `.pagesmith/markdown-guidelines.md`
+- use `content.config.ts` as the source of truth for collection schemas and markdown settings
+- treat `pagesmith.config.json5` as the source of truth for site metadata, footer links, theme, search, and ports
+- render project pages from structured frontmatter (`github`, `docsUrl`, `packages`, `badges`, `tags`) instead of ad hoc markdown-only links
+- keep Pagefind as the built-in search strategy
+
+For package usage guidance and full API reference, read:
+- `node_modules/@pagesmith/site/ai-guidelines/setup-site.md`
+- `node_modules/@pagesmith/site/ai-guidelines/usage.md`
+- `node_modules/@pagesmith/site/REFERENCE.md`
+- `node_modules/@pagesmith/core/ai-guidelines/setup-core.md`
+- `node_modules/@pagesmith/core/ai-guidelines/core-guidelines.md`
+- `node_modules/@pagesmith/core/ai-guidelines/markdown-guidelines.md`
+- `node_modules/@pagesmith/core/ai-guidelines/usage.md`
+- `node_modules/@pagesmith/core/REFERENCE.md`
+
+Return code, config, or documentation-ready guidance instead of vague summaries.
+"""
+
+# Installed as /pagesmith

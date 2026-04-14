@@ -6,18 +6,34 @@ tags:
   - static-site-generator
   - markdown
   - typescript
-gitRepo: "https://github.com/sujeet-pro/pagesmith"
-links:
-  - url: "https://projects.sujeet.pro/pagesmith/"
-    text: Docs
+github: "https://github.com/sujeet-pro/pagesmith"
+docsUrl: "https://projects.sujeet.pro/pagesmith/"
+packages:
+  - name: "@pagesmith/core"
+    url: "https://www.npmjs.com/package/@pagesmith/core"
+  - name: "@pagesmith/site"
+    url: "https://www.npmjs.com/package/@pagesmith/site"
+  - name: "@pagesmith/docs"
+    url: "https://www.npmjs.com/package/@pagesmith/docs"
+badges:
+  - label: "CI"
+    image: "https://github.com/sujeet-pro/pagesmith/workflows/CI/badge.svg"
+    href: "https://github.com/sujeet-pro/pagesmith/blob/main/.github/workflows/ci.yml"
+    alt: "CI status for Pagesmith"
 ---
 
-# Pagesmith
-
-A static site generator for markdown-driven personal projects, with typed layouts and quiet enhancement. Pagesmith is a filesystem-first content toolkit with two main packages: `@pagesmith/core` (shared content/runtime layer) and `@pagesmith/docs` (convention-based documentation site builder).
+A static site generator for markdown-driven personal projects, with typed layouts and quiet enhancement. Pagesmith is a filesystem-first content toolkit with three public packages: `@pagesmith/core` (headless content layer), `@pagesmith/site` (site toolkit), and `@pagesmith/docs` (opinionated docs preset).
 
 - [GitHub Repository](https://github.com/sujeet-pro/pagesmith)
 - [Documentation](https://projects.sujeet.pro/pagesmith/)
+
+## Architecture
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
+  <img alt="Pagesmith architecture diagram" src="diagrams/architecture-light.svg" />
+</picture>
 
 ## What It Does
 

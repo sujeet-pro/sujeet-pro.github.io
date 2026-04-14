@@ -8,18 +8,30 @@ tags:
   - mermaid
   - excalidraw
   - developer-tools
-gitRepo: "https://github.com/sujeet-pro/diagramkit"
-links:
-  - url: "https://projects.sujeet.pro/diagramkit/"
-    text: Docs
+github: "https://github.com/sujeet-pro/diagramkit"
+docsUrl: "https://projects.sujeet.pro/diagramkit/"
+packages:
+  - name: "diagramkit"
+    url: "https://www.npmjs.com/package/diagramkit"
+badges:
+  - label: "CI"
+    image: "https://github.com/sujeet-pro/diagramkit/workflows/CI/badge.svg"
+    href: "https://github.com/sujeet-pro/diagramkit/blob/main/.github/workflows/ci.yml"
+    alt: "CI status for DiagramKit"
 ---
-
-# DiagramKit
 
 A CLI tool to generate images from diagram files. Supports Mermaid, Excalidraw, and more. DiagramKit watches diagram source files and generates SVG or PNG output with light and dark theme variants, making it easy to embed scheme-aware diagrams in documentation and websites.
 
 - [GitHub Repository](https://github.com/sujeet-pro/diagramkit)
 - [Documentation](https://projects.sujeet.pro/diagramkit/)
+
+## Architecture
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
+  <img alt="DiagramKit architecture diagram" src="diagrams/architecture-light.svg" />
+</picture>
 
 ## What It Does
 

@@ -1,0 +1,38 @@
+graph LR
+  subgraph Input["Diagram Sources"]
+    Mermaid[".mermaid"]
+    Excalidraw[".excalidraw"]
+    DrawIO[".drawio"]
+    Graphviz[".dot / .gv"]
+  end
+
+  subgraph Engine["Render Engines"]
+    Browser["Chromium Pool"]
+    Vizjs["Viz.js WASM"]
+  end
+
+  subgraph Processing["Processing"]
+    Light["Light Theme"]
+    Dark["Dark Theme"]
+    Contrast["WCAG Contrast Fix"]
+  end
+
+  subgraph Output["Output"]
+    SVG["SVG"]
+    Raster["PNG / WebP / AVIF"]
+    Manifest["Manifest Cache"]
+  end
+
+  Mermaid --> Browser
+  Excalidraw --> Browser
+  DrawIO --> Browser
+  Graphviz --> Vizjs
+  Browser --> Light
+  Browser --> Dark
+  Vizjs --> Light
+  Vizjs --> Dark
+  Dark --> Contrast
+  Light --> SVG
+  Contrast --> SVG
+  SVG --> Raster
+  SVG --> Manifest

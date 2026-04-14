@@ -1,0 +1,40 @@
+graph LR
+  subgraph Core["@stateloom/core"]
+    Signal["Signal"]
+    Computed["Computed"]
+    Effect["Effect"]
+    Batch["Batch"]
+  end
+
+  subgraph Paradigms["API Paradigms"]
+    Store["Store<br/>Zustand-style"]
+    Atom["Atom<br/>Jotai-style"]
+    Proxy["Proxy<br/>Valtio-style"]
+  end
+
+  subgraph Middleware["Middleware"]
+    Persist["Persistence"]
+    Devtools["Devtools"]
+    History["History"]
+    Sync["Tab Sync"]
+  end
+
+  subgraph Adapters["Framework Adapters"]
+    React["React"]
+    Vue["Vue"]
+    Solid["Solid"]
+    Svelte["Svelte"]
+    Angular["Angular"]
+  end
+
+  Signal --> Store
+  Signal --> Atom
+  Signal --> Proxy
+  Computed --> Store
+  Computed --> Atom
+  Store --> Middleware
+  Atom --> Middleware
+  Proxy --> Middleware
+  Store --> Adapters
+  Atom --> Adapters
+  Proxy --> Adapters

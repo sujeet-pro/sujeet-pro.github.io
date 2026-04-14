@@ -1,0 +1,31 @@
+graph LR
+  subgraph Source["Source"]
+    File["Local File"]
+    Dir["Directory Tree"]
+    URL["Remote URL"]
+  end
+
+  subgraph Convert["Conversion"]
+    Parse["Markdown Parser"]
+    ADF["ADF Generator"]
+    MermaidRender["Mermaid to PNG"]
+    TOC["TOC Macro"]
+  end
+
+  subgraph Publish["Confluence Cloud"]
+    API["REST API v2"]
+    Pages["Pages"]
+    Attach["Attachments"]
+  end
+
+  File --> Parse
+  Dir --> Parse
+  URL --> Parse
+  Parse --> ADF
+  Parse --> MermaidRender
+  Parse --> TOC
+  ADF --> API
+  MermaidRender --> Attach
+  TOC --> ADF
+  API --> Pages
+  Attach --> Pages

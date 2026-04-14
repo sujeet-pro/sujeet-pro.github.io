@@ -1,7 +1,7 @@
 {
   "name": "sujeet-pro.github.io",
   "version": "1.0.0",
-  "description": "Projects Landing page",
+  "description": "Open source projects and tools by Sujeet Jaiswal.",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -9,19 +9,31 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "vp check src layouts lib runtime entry-server.tsx pagesmith.config.ts vite.config.ts client.ts content",
-    "check:fix": "vp check --fix src layouts lib runtime entry-server.tsx pagesmith.config.ts vite.config.ts client.ts content",
-    "test": "vp test"
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "lint": "vp lint",
+    "format": "vp fmt . --write",
+    "format:check": "vp fmt --check",
+    "check": "vp check",
+    "test": "vp test",
+    "test:watch": "vp test watch",
+    "typecheck": "tsc --noEmit",
+    "render:diagrams": "diagramkit render content/"
   },
   "dependencies": {
-    "@pagesmith/core": "^0.6.0",
+    "@pagesmith/site": "^0.9.0",
+    "diagramkit": "^0.2.2",
     "json5": "^2.2.3"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
-    "vite-plus": "^0.1.16"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.8",
+    "vite-plus": "^0.1.16",
+    "vitest": "^4.1.4"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

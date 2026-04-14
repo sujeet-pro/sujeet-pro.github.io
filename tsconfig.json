@@ -1,28 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "jsxImportSource": "@pagesmith/core",
-    "types": ["node"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "noEmit": true,
-    "paths": {
-      "#lib/*": ["./lib/*"]
-    }
+    "jsx": "react-jsx",
+    "jsxImportSource": "@pagesmith/site",
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["node"]
   },
   "include": [
-    "entry-server.tsx",
-    "client.ts",
-    "src/**/*.ts",
-    "layouts/**/*.tsx",
-    "runtime/**/*.ts",
+    "content.config.ts",
+    "vite.config.ts",
     "lib/**/*.ts",
-    "pagesmith.config.ts",
-    "vite.config.ts"
-  ],
-  "exclude": ["dist", "node_modules"]
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "theme/**/*.ts",
+    "theme/**/*.tsx"
+  ]
 }

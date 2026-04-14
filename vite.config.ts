@@ -1,39 +1,44 @@
-import { resolve } from "node:path";
 import { defineConfig } from "vite-plus";
-import { pagesmithSsg, sharedAssetsPlugin } from "@pagesmith/core/vite";
+import { loadSiteConfig, normalizeBasePath, parseSiteConfig } from "@pagesmith/site";
+import { pagesmithContent, pagesmithSsg, sharedAssetsPlugin } from "@pagesmith/site/vite";
+import collections, { pagesmithMarkdown } from "./content.config.ts";
 
-const root = import.meta.dirname;
+const siteConfig = parseSiteConfig(loadSiteConfig());
+const basePath = normalizeBasePath(siteConfig.basePath);
 
 export default defineConfig({
-  base: process.env.BASE_PATH || "/",
+  base: basePath ? `${basePath}/` : "/",
   plugins: [
     sharedAssetsPlugin(),
-    ...pagesmithSsg({ entry: "./entry-server.tsx", contentDirs: ["./content"] }),
+    pagesmithContent({
+      collections,
+      markdown: pagesmithMarkdown,
+      contentRoot: "content",
+      dts: false,
+    }),
+    ...pagesmithSsg({
+      entry: "./src/entry-server.tsx",
+      contentDirs: ["./content"],
+      cssEntry: "./src/theme.css",
+      pagefind: siteConfig.search?.enabled,
+    }),
   ],
-  build: {
-    outDir: "dist",
-    emptyOutDir: true,
+  server: {
+    port: siteConfig.server?.devPort,
   },
-  oxc: {
-    jsx: {
-      runtime: "automatic",
-      importSource: "@pagesmith/core",
-    },
-  },
-  resolve: {
-    alias: {
-      "#lib": resolve(root, "lib"),
-    },
+  preview: {
+    port: siteConfig.server?.previewPort,
   },
   lint: {
+    ignorePatterns: ["dist/**"],
     options: {
       typeAware: true,
       typeCheck: true,
     },
   },
+  fmt: {},
   test: {
-    passWithNoTests: true,
-    include: ["tests/**/*.test.ts"],
-    exclude: ["node_modules", "dist"],
+    environment: "node",
+    include: ["**/*.{test,spec}.{ts,tsx}"],
   },
 });

@@ -1,0 +1,36 @@
+graph LR
+  subgraph Tokens["Design Tokens"]
+    DTCG["DTCG JSON"]
+    SD["Style Dictionary"]
+    CSS_Vars["CSS Custom Properties"]
+  end
+
+  subgraph Components["Components"]
+    BEM["BEM Classes"]
+    Modules["CSS Modules"]
+    Layers["CSS @layer"]
+  end
+
+  subgraph Themes["Themes"]
+    Material["Material"]
+    Ant["Ant Design"]
+    Bootstrap["Bootstrap"]
+    LightMod["Light Modern"]
+    DarkMod["Dark Modern"]
+  end
+
+  subgraph Adapters["Framework"]
+    ReactAdpt["React Adapters"]
+    Vanilla["Vanilla JS / HTML"]
+  end
+
+  DTCG --> SD
+  SD --> CSS_Vars
+  CSS_Vars --> BEM
+  CSS_Vars --> Modules
+  BEM --> Layers
+  Modules --> Layers
+  CSS_Vars --> Themes
+  BEM --> ReactAdpt
+  BEM --> Vanilla
+  Modules --> ReactAdpt

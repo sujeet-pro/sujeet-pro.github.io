@@ -1,0 +1,36 @@
+graph LR
+  subgraph Content["Content Layer"]
+    MD["Markdown Files"]
+    FM["Frontmatter + Schema"]
+    CL["Collections"]
+  end
+
+  subgraph Core["@pagesmith/core"]
+    Loader["Loaders"]
+    Pipeline["Markdown Pipeline"]
+    Validate["Validation"]
+  end
+
+  subgraph Site["@pagesmith/site"]
+    JSX["JSX Runtime"]
+    CSS["CSS Bundles"]
+    SSG["Vite SSG"]
+    Chrome["Components"]
+  end
+
+  subgraph Output["Output"]
+    HTML["Static HTML"]
+    Search["Pagefind Search"]
+  end
+
+  MD --> Loader
+  FM --> Validate
+  CL --> Loader
+  Loader --> Pipeline
+  Pipeline --> JSX
+  Validate --> JSX
+  JSX --> SSG
+  CSS --> SSG
+  Chrome --> SSG
+  SSG --> HTML
+  HTML --> Search

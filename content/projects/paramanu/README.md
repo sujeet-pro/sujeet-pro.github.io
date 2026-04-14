@@ -8,18 +8,35 @@ tags:
   - react
   - accessibility
   - theming
-gitRepo: "https://github.com/sujeet-pro/paramanu"
-links:
-  - url: "https://www.npmjs.com/org/paramanu"
-    text: npm
+github: "https://github.com/sujeet-pro/paramanu"
+docsUrl: "https://projects.sujeet.pro/paramanu/"
+packages:
+  - name: "@paramanu/tokens"
+    url: "https://www.npmjs.com/package/@paramanu/tokens"
+  - name: "@paramanu/buttons-js"
+    url: "https://www.npmjs.com/package/@paramanu/buttons-js"
+  - name: "@paramanu/buttons-react"
+    url: "https://www.npmjs.com/package/@paramanu/buttons-react"
+badges:
+  - label: "CI"
+    image: "https://github.com/sujeet-pro/paramanu/workflows/CI/badge.svg"
+    href: "https://github.com/sujeet-pro/paramanu/blob/main/.github/workflows/ci.yml"
+    alt: "CI status for Paramanu"
 ---
-
-# Paramanu
 
 Design systems promise consistency and velocity, but most implementations force a hard choice: adopt a framework-coupled component library and accept the lock-in, or maintain raw CSS that drifts between projects. Paramanu takes a different path: CSS-first components with a dual API (BEM class strings for any template engine or CDN, CSS Modules for bundler-based tree shaking), a three-tier token system for deep theming, and thin framework adapters that are generated rather than hand-written.
 
 - [GitHub Repository](https://github.com/sujeet-pro/paramanu)
+- [Documentation](https://projects.sujeet.pro/paramanu/)
 - [npm](https://www.npmjs.com/org/paramanu)
+
+## Architecture
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
+  <img alt="Paramanu architecture diagram" src="diagrams/architecture-light.svg" />
+</picture>
 
 ## What It Does
 

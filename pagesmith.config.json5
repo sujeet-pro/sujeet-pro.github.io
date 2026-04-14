@@ -1,0 +1,44 @@
+{
+  name: "Sujeet's Projects",
+  title: "Sujeet's Projects",
+  description: "Open source projects and tools by Sujeet Jaiswal.",
+  origin: "https://projects.sujeet.pro",
+  language: "en",
+  basePath: "/",
+  contentDir: "content",
+  outDir: "dist",
+  maintainer: {
+    name: "Sujeet Jaiswal",
+    link: "https://sujeet.pro",
+  },
+  footerLinks: [
+    {
+      header: "Elsewhere",
+      links: [
+        { label: "Profile", path: "https://sujeet.pro" },
+        { label: "GitHub", path: "https://github.com/sujeet-pro" },
+        { label: "LinkedIn", path: "https://www.linkedin.com/in/sujeetkrjaiswal/" },
+      ],
+    },
+  ],
+  copyright: {
+    projectName: "Sujeet's Projects",
+    startYear: 2024,
+    endYear: null,
+  },
+  search: {
+    enabled: true,
+    showImages: false,
+    showSubResults: true,
+  },
+  theme: {
+    lightColor: "#f8fafc",
+    darkColor: "#020617",
+    defaultColorScheme: "auto",
+    defaultTheme: "paper",
+  },
+  server: {
+    devPort: 3000,
+    previewPort: 4173,
+  },
+}

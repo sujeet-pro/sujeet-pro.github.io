@@ -1,0 +1,6 @@
+{
+  outputDir: "diagrams",
+  defaultFormats: ["svg"],
+  defaultTheme: "both",
+  useManifest: true,
+}

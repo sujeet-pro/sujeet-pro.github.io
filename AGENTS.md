@@ -1,18 +1,42 @@
 # Agent Instructions
 
-This is a project portfolio site built with `@pagesmith/core` and Vite SSG.
+This repo is a portfolio site built with `@pagesmith/site`.
 
-## Key paths
+## Key Paths
 
-- `entry-server.tsx` — SSR entry (getRoutes + render)
-- `pagesmith.config.ts` — content collection definitions
-- `content/projects/{slug}/README.md` — project pages
-- `content/projects/meta.json5` — project ordering
-- `content/site.json5` — site configuration
-- `layouts/` — JSX layout components
+- `pagesmith.config.json5` - site config, footer links, search, theme, and build output
+- `content.config.ts` - typed Pagesmith collections and markdown settings
+- `content/README.md` - home page content
+- `content/projects/README.md` - projects listing page content
+- `content/projects/{slug}/README.md` - project detail pages
+- `content/projects/meta.json5` - manual project ordering
+- `src/entry-server.tsx` - SSG route and render entry
+- `src/client.ts` - browser runtime bootstrap
+- `src/theme.css` - site styles layered on top of `@pagesmith/site/css/standalone`
+- `theme/layouts/*.tsx` - custom site layouts
+- `.pagesmith/markdown-guidelines.md` - markdown authoring rules
 
-## @pagesmith/core guidance
+## Commands
 
-- For setup and usage: `node_modules/@pagesmith/core/ai-guidelines/usage.md`
-- For full reference: `node_modules/@pagesmith/core/REFERENCE.md`
-- For markdown authoring: `node_modules/@pagesmith/core/ai-guidelines/markdown-guidelines.md`
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
+- `npm run check`
+- `npm run lint`
+- `npm run format`
+- `npm test`
+- `npm run typecheck`
+
+## Pagesmith Guidance
+
+- For bootstrap and retrofit tasks, read `node_modules/@pagesmith/site/ai-guidelines/setup-site.md`
+- For operating guidance, read `node_modules/@pagesmith/site/ai-guidelines/usage.md`
+- For the full reference, read `node_modules/@pagesmith/site/REFERENCE.md`
+- For markdown authoring, read `.pagesmith/markdown-guidelines.md`
+
+## Adding A Project
+
+1. Create `content/projects/{slug}/README.md` with frontmatter such as `title`, `description`, `github`, `docsUrl`, `packages`, `badges`, and `tags`.
+2. Add the slug to `content/projects/meta.json5`.
+3. Add a matching featured card to `content/README.md` if the project should appear on the home page.
+4. Set `draft: true` in frontmatter to hide unfinished pages from the build.

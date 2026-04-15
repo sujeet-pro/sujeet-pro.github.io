@@ -31,10 +31,8 @@ Frontend state management is fragmented. Teams pick Zustand for stores, Jotai fo
 
 ## Architecture
 
-<div class="diagram-themed">
-  <img class="diagram-light" alt="StateLoom architecture diagram" src="diagrams/architecture-light.svg" />
-  <img class="diagram-dark" alt="StateLoom architecture diagram" src="diagrams/architecture-dark.svg" />
-</div>
+![StateLoom architecture diagram](diagrams/architecture-light.svg)
+![StateLoom architecture diagram](diagrams/architecture-dark.svg)
 
 ## What It Does
 

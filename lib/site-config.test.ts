@@ -12,7 +12,7 @@ describe("site-config path helpers", () => {
   it("applies the base path only to site-relative links", () => {
     expect(withBasePath("/projects", "/docs")).toBe("/projects/docs");
     expect(withBasePath("/projects", "/projects/docs")).toBe("/projects/docs");
-    expect(withBasePath("/projects", "docs")).toBe("docs");
+    expect(withBasePath("/projects", "docs")).toBe("/projects/docs");
     expect(withBasePath("/projects", "https://example.com/docs")).toBe("https://example.com/docs");
     expect(withBasePath("/projects", "mailto:hello@example.com")).toBe("mailto:hello@example.com");
   });

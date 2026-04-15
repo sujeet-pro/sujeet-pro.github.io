@@ -24,10 +24,8 @@ A CLI tool to generate images from diagram files. Supports Mermaid, Excalidraw, 
 
 ## Architecture
 
-<div class="diagram-themed">
-  <img class="diagram-light" alt="DiagramKit architecture diagram" src="diagrams/architecture-light.svg" />
-  <img class="diagram-dark" alt="DiagramKit architecture diagram" src="diagrams/architecture-dark.svg" />
-</div>
+![DiagramKit architecture diagram](diagrams/architecture-light.svg)
+![DiagramKit architecture diagram](diagrams/architecture-dark.svg)
 
 ## What It Does
 

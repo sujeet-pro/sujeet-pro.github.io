@@ -37,6 +37,10 @@ export default function ProjectPage({
       url={slug}
       socialImage={frontmatter.socialImage}
       site={site}
+      meta={{
+        ogType: "article",
+        tags: frontmatter.tags.length > 0 ? frontmatter.tags : undefined,
+      }}
     >
       <PageShell
         site={site}

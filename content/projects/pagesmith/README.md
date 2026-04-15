@@ -26,10 +26,8 @@ A static site generator for markdown-driven personal projects, with typed layout
 
 ## Architecture
 
-<div class="diagram-themed">
-  <img class="diagram-light" alt="Pagesmith architecture diagram" src="diagrams/architecture-light.svg" />
-  <img class="diagram-dark" alt="Pagesmith architecture diagram" src="diagrams/architecture-dark.svg" />
-</div>
+![Pagesmith architecture diagram](diagrams/architecture-light.svg)
+![Pagesmith architecture diagram](diagrams/architecture-dark.svg)
 
 ## What It Does
 

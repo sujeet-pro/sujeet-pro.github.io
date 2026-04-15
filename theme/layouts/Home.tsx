@@ -1,6 +1,13 @@
 import { withBasePath } from "@pagesmith/site";
 import type { SiteDocumentData } from "@pagesmith/site/components";
-import { SiteDocument, SiteFooter, SiteHeader, SiteSidebar } from "@pagesmith/site/components";
+import {
+  HeroSection,
+  SiteDocument,
+  SiteFooter,
+  SiteHeader,
+  SiteSidebar,
+} from "@pagesmith/site/components";
+import type { SiteAction } from "@pagesmith/site/components";
 import type { HomeFrontmatter } from "../../content.config";
 import { ProjectCard } from "../components/ProjectCard";
 import type { ProjectRecord } from "../lib/projects";
@@ -74,23 +81,19 @@ export default function Home({ content, frontmatter, slug, site, projects }: Pro
       <main id="doc-main-content" class="doc-home" tabindex="-1">
         <SiteSidebar sections={sidebarSections} currentSlug={slug} />
         <article class="doc-home-body" data-pagefind-body="">
-          <section class="doc-home-section doc-hero">
-            {heroText ? <h1 class="doc-hero-text">{heroText}</h1> : null}
-            {pageDescription ? <p class="doc-hero-tagline">{pageDescription}</p> : null}
-            {frontmatter.actions.length > 0 ? (
-              <div class="doc-hero-actions">
-                {frontmatter.actions.map((action) => (
-                  <a
-                    class={`doc-hero-action doc-hero-action-${
-                      action.theme === "alt" ? "alt" : "brand"
-                    }`}
-                    href={resolveHref(basePath, action.link)}
-                  >
-                    {action.text}
-                  </a>
-                ))}
-              </div>
-            ) : null}
+          <section class="doc-home-section">
+            <HeroSection
+              tagline={heroText}
+              description={pageDescription}
+              actions={frontmatter.actions.map(
+                (action): SiteAction => ({
+                  label: action.text,
+                  href: resolveHref(basePath, action.link) ?? "#",
+                  variant: action.theme === "alt" ? "secondary" : "primary",
+                }),
+              )}
+              trailingSlash={site.trailingSlash}
+            />
           </section>
 
           {featuredProjects.length > 0 ? (

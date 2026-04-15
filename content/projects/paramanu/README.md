@@ -28,10 +28,8 @@ Design systems promise consistency and velocity, but most implementations force 
 
 ## Architecture
 
-<div class="diagram-themed">
-  <img class="diagram-light" alt="Paramanu architecture diagram" src="diagrams/architecture-light.svg" />
-  <img class="diagram-dark" alt="Paramanu architecture diagram" src="diagrams/architecture-dark.svg" />
-</div>
+![Paramanu architecture diagram](diagrams/architecture-light.svg)
+![Paramanu architecture diagram](diagrams/architecture-dark.svg)
 
 ## What It Does
 

@@ -53,6 +53,7 @@ function buildSite(config: SsgRenderConfig): SiteDocumentData {
       { path: projectsPath, label: projectsLabel },
       { path: "https://sujeet.pro", label: "Sujeet.pro" },
     ],
+    trailingSlash: siteConfig?.trailingSlash ?? false,
     cssPath: config.cssPath,
     jsPath: config.jsPath,
   };

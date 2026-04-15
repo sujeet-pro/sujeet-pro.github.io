@@ -7,6 +7,7 @@
   basePath: "/",
   contentDir: "content",
   outDir: "dist",
+  trailingSlash: false,
   maintainer: {
     name: "Sujeet Jaiswal",
     link: "https://sujeet.pro",

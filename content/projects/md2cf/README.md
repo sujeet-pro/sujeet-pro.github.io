@@ -24,10 +24,8 @@ Engineering teams write documentation in Markdown because it lives alongside cod
 
 ## Architecture
 
-<div class="diagram-themed">
-  <img class="diagram-light" alt="md2cf architecture diagram" src="diagrams/architecture-light.svg" />
-  <img class="diagram-dark" alt="md2cf architecture diagram" src="diagrams/architecture-dark.svg" />
-</div>
+![md2cf architecture diagram](diagrams/architecture-light.svg)
+![md2cf architecture diagram](diagrams/architecture-dark.svg)
 
 ## What It Does
 

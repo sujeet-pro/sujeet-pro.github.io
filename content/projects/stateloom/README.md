@@ -29,17 +29,12 @@ badges:
 
 Frontend state management is fragmented. Teams pick Zustand for stores, Jotai for atoms, or Valtio for proxies --- then discover they can't share middleware, mix paradigms, or migrate between frameworks without rewriting state logic. StateLoom unifies all three paradigms on a single signal-based reactive core, with framework adapters for React, Vue, Solid, Svelte, and Angular, and composable middleware for persistence, devtools, sync, and more.
 
-- [GitHub Repository](https://github.com/sujeet-pro/stateloom)
-- [npm](https://www.npmjs.com/org/stateloom)
-- [Documentation](https://projects.sujeet.pro/stateloom/)
-
 ## Architecture
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
-  <img alt="StateLoom architecture diagram" src="diagrams/architecture-light.svg" />
-</picture>
+<div class="diagram-themed">
+  <img class="diagram-light" alt="StateLoom architecture diagram" src="diagrams/architecture-light.svg" />
+  <img class="diagram-dark" alt="StateLoom architecture diagram" src="diagrams/architecture-dark.svg" />
+</div>
 
 ## What It Does
 

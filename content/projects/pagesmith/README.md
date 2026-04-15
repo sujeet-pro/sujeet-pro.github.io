@@ -24,16 +24,12 @@ badges:
 
 A static site generator for markdown-driven personal projects, with typed layouts and quiet enhancement. Pagesmith is a filesystem-first content toolkit with three public packages: `@pagesmith/core` (headless content layer), `@pagesmith/site` (site toolkit), and `@pagesmith/docs` (opinionated docs preset).
 
-- [GitHub Repository](https://github.com/sujeet-pro/pagesmith)
-- [Documentation](https://projects.sujeet.pro/pagesmith/)
-
 ## Architecture
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
-  <img alt="Pagesmith architecture diagram" src="diagrams/architecture-light.svg" />
-</picture>
+<div class="diagram-themed">
+  <img class="diagram-light" alt="Pagesmith architecture diagram" src="diagrams/architecture-light.svg" />
+  <img class="diagram-dark" alt="Pagesmith architecture diagram" src="diagrams/architecture-dark.svg" />
+</div>
 
 ## What It Does
 

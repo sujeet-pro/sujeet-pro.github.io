@@ -26,17 +26,12 @@ badges:
 
 Design systems promise consistency and velocity, but most implementations force a hard choice: adopt a framework-coupled component library and accept the lock-in, or maintain raw CSS that drifts between projects. Paramanu takes a different path: CSS-first components with a dual API (BEM class strings for any template engine or CDN, CSS Modules for bundler-based tree shaking), a three-tier token system for deep theming, and thin framework adapters that are generated rather than hand-written.
 
-- [GitHub Repository](https://github.com/sujeet-pro/paramanu)
-- [Documentation](https://projects.sujeet.pro/paramanu/)
-- [npm](https://www.npmjs.com/org/paramanu)
-
 ## Architecture
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
-  <img alt="Paramanu architecture diagram" src="diagrams/architecture-light.svg" />
-</picture>
+<div class="diagram-themed">
+  <img class="diagram-light" alt="Paramanu architecture diagram" src="diagrams/architecture-light.svg" />
+  <img class="diagram-dark" alt="Paramanu architecture diagram" src="diagrams/architecture-dark.svg" />
+</div>
 
 ## What It Does
 

@@ -22,16 +22,12 @@ badges:
 
 A CLI tool to generate images from diagram files. Supports Mermaid, Excalidraw, and more. DiagramKit watches diagram source files and generates SVG or PNG output with light and dark theme variants, making it easy to embed scheme-aware diagrams in documentation and websites.
 
-- [GitHub Repository](https://github.com/sujeet-pro/diagramkit)
-- [Documentation](https://projects.sujeet.pro/diagramkit/)
-
 ## Architecture
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
-  <img alt="DiagramKit architecture diagram" src="diagrams/architecture-light.svg" />
-</picture>
+<div class="diagram-themed">
+  <img class="diagram-light" alt="DiagramKit architecture diagram" src="diagrams/architecture-light.svg" />
+  <img class="diagram-dark" alt="DiagramKit architecture diagram" src="diagrams/architecture-dark.svg" />
+</div>
 
 ## What It Does
 

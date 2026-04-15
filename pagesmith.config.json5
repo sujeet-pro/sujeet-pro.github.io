@@ -12,14 +12,9 @@
     link: "https://sujeet.pro",
   },
   footerLinks: [
-    {
-      header: "Elsewhere",
-      links: [
-        { label: "Profile", path: "https://sujeet.pro" },
-        { label: "GitHub", path: "https://github.com/sujeet-pro" },
-        { label: "LinkedIn", path: "https://www.linkedin.com/in/sujeetkrjaiswal/" },
-      ],
-    },
+    { label: "Profile", path: "https://sujeet.pro" },
+    { label: "GitHub", path: "https://github.com/sujeet-pro" },
+    { label: "LinkedIn", path: "https://www.linkedin.com/in/sujeetkrjaiswal/" },
   ],
   copyright: {
     projectName: "Sujeet's Projects",

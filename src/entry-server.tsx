@@ -59,7 +59,11 @@ function buildSite(config: SsgRenderConfig): SiteDocumentData {
 }
 
 function toHtml(node: unknown, includeDoctype: boolean): string {
-  const html = String(node);
+  // Widen the default CSP img-src to allow external badge images
+  const html = String(node).replace(
+    "img-src 'self' data:",
+    "img-src 'self' data: https://img.shields.io https://github.com",
+  );
   return includeDoctype ? `<!DOCTYPE html>${html}` : html;
 }
 
@@ -98,6 +102,7 @@ export function render(url: string, config: SsgRenderConfig): string {
         }
         slug={site.homeLink ?? "/"}
         site={site}
+        projects={orderedProjects}
       />,
       includeDoctype,
     );

@@ -1,6 +1,6 @@
 import { withTrailingSlash } from "@pagesmith/site";
 import type { ProjectRecord } from "../lib/projects";
-import { ProjectBadges } from "./ProjectBadges";
+import { buildNpmVersionBadge } from "../lib/projects";
 
 type Props = {
   project: ProjectRecord;
@@ -8,30 +8,45 @@ type Props = {
 
 export function ProjectCard({ project }: Props) {
   const { frontmatter } = project;
+  const projectUrl = withTrailingSlash(project.path);
 
   return (
-    <li class="site-project-card-item">
-      <a class="doc-listing-card site-project-card" href={withTrailingSlash(project.path)}>
+    <li class="site-project-card">
+      <div class="site-project-card-body">
         <div class="site-project-card-top">
-          <span class="doc-listing-card-title">{frontmatter.title}</span>
+          <a class="site-project-card-title" href={projectUrl}>
+            {frontmatter.title}
+          </a>
           {frontmatter.tags[0] ? (
             <span class="site-project-card-tag">{frontmatter.tags[0]}</span>
           ) : null}
         </div>
-        <span class="doc-listing-card-desc">{frontmatter.description}</span>
+        <p class="site-project-card-desc">{frontmatter.description}</p>
         {frontmatter.tags.length > 0 ? (
-          <span class="site-tag-list" aria-label="Project tags">
+          <div class="site-tag-list" aria-label="Project tags">
             {frontmatter.tags.map((tag) => (
               <span class="site-pill">{tag}</span>
             ))}
-          </span>
+          </div>
         ) : null}
-        <div class="site-project-card-badges">
-          <ProjectBadges badges={frontmatter.badges} packages={frontmatter.packages} limit={4} />
-        </div>
-      </a>
+        {frontmatter.packages.length > 0 ? (
+          <div class="site-project-packages-list">
+            {frontmatter.packages.map((pkg) => (
+              <a class="site-project-pkg" href={pkg.url} target="_blank" rel="noopener noreferrer">
+                <code class="site-project-pkg-name">{pkg.name}</code>
+                <img
+                  class="site-badge-image"
+                  src={buildNpmVersionBadge(pkg.name)}
+                  alt={`npm version for ${pkg.name}`}
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
+        ) : null}
+      </div>
       <div class="site-project-card-actions">
-        <a class="site-project-card-action" href={withTrailingSlash(project.path)}>
+        <a class="site-project-card-action site-project-card-action-primary" href={projectUrl}>
           View project
         </a>
         <a

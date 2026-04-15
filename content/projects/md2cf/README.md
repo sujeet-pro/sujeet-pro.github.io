@@ -22,17 +22,12 @@ badges:
 
 Engineering teams write documentation in Markdown because it lives alongside code, diffs cleanly in pull requests, and works with every editor. But many organizations mandate Confluence as the single source of truth for internal documentation. md2cf bridges this gap --- it converts Markdown to Atlassian Document Format (ADF) and publishes directly to Confluence Cloud via the REST API v2.
 
-- [GitHub Repository](https://github.com/sujeet-pro/markdown-to-confluence-sync)
-- [npm](https://www.npmjs.com/package/md2cf)
-- [Documentation](https://projects.sujeet.pro/markdown-to-confluence-sync/)
-
 ## Architecture
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="diagrams/architecture-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="diagrams/architecture-light.svg" />
-  <img alt="md2cf architecture diagram" src="diagrams/architecture-light.svg" />
-</picture>
+<div class="diagram-themed">
+  <img class="diagram-light" alt="md2cf architecture diagram" src="diagrams/architecture-light.svg" />
+  <img class="diagram-dark" alt="md2cf architecture diagram" src="diagrams/architecture-dark.svg" />
+</div>
 
 ## What It Does
 

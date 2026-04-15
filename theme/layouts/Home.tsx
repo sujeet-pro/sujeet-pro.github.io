@@ -2,12 +2,15 @@ import { withBasePath } from "@pagesmith/site";
 import type { SiteDocumentData } from "@pagesmith/site/components";
 import { SiteDocument, SiteFooter, SiteHeader, SiteSidebar } from "@pagesmith/site/components";
 import type { HomeFrontmatter } from "../../content.config";
+import { ProjectCard } from "../components/ProjectCard";
+import type { ProjectRecord } from "../lib/projects";
 
 type Props = {
   content: string;
   frontmatter: HomeFrontmatter;
   slug: string;
   site: SiteDocumentData;
+  projects: ProjectRecord[];
 };
 
 function resolveHref(basePath: string | undefined, value: string | undefined): string | undefined {
@@ -15,11 +18,29 @@ function resolveHref(basePath: string | undefined, value: string | undefined): s
   return value.startsWith("/") ? withBasePath(basePath ?? "", value) : value;
 }
 
-export default function Home({ content, frontmatter, slug, site }: Props) {
+function getFeaturedProjects(
+  featured: HomeFrontmatter["packages"],
+  projects: ProjectRecord[],
+): ProjectRecord[] {
+  const bySlug = new Map(projects.map((p) => [p.slug, p]));
+  const result: ProjectRecord[] = [];
+  for (const pkg of featured) {
+    const slug = pkg.href?.replace(/^\/projects\//, "").replace(/\/$/, "");
+    if (slug) {
+      const project = bySlug.get(slug);
+      if (project) result.push(project);
+    }
+  }
+  return result;
+}
+
+export default function Home({ content, frontmatter, slug, site, projects }: Props) {
   const pageTitle = frontmatter.title || site.title || site.name;
   const pageDescription = frontmatter.description || site.description;
   const basePath = site.basePath ?? "";
   const heroText = frontmatter.tagline || frontmatter.title;
+
+  const featuredProjects = getFeaturedProjects(frontmatter.packages, projects);
 
   const sidebarSections =
     site.navItems && site.navItems.length > 0
@@ -72,26 +93,14 @@ export default function Home({ content, frontmatter, slug, site }: Props) {
             ) : null}
           </section>
 
-          {frontmatter.packages.length > 0 ? (
+          {featuredProjects.length > 0 ? (
             <section class="doc-home-section">
               <p class="doc-home-section-label">Featured Projects</p>
-              <div class="doc-packages">
-                {frontmatter.packages.map((project) => {
-                  const Tag = project.href ? "a" : "div";
-
-                  return (
-                    <Tag class="doc-package-card" href={resolveHref(basePath, project.href)}>
-                      <div class="doc-package-name">{project.name}</div>
-                      <p class="doc-package-desc">{project.description}</p>
-                      {project.tag ? (
-                        <div class="doc-package-meta">
-                          <span class="doc-package-tag">{project.tag}</span>
-                        </div>
-                      ) : null}
-                    </Tag>
-                  );
-                })}
-              </div>
+              <ul class="doc-listing-grid">
+                {featuredProjects.map((project) => (
+                  <ProjectCard project={project} />
+                ))}
+              </ul>
             </section>
           ) : null}
 

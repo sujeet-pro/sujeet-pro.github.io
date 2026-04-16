@@ -20,9 +20,7 @@
           "height": 697
         }
       ],
-      "formats": [
-        "svg"
-      ],
+      "formats": ["svg"],
       "theme": "both",
       "mtimeMs": 1776207095349.9297,
       "size": 800

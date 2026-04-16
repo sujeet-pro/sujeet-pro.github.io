@@ -20,11 +20,11 @@
     "test:watch": "vp test watch",
     "typecheck": "tsc --noEmit",
     "check:ci": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
-    "render:diagrams": "diagramkit render content/",
-    "validate:build": "node --strip-types --no-warnings scripts/validate-build.ts"
+    "render:diagrams": "diagramkit render content/"
   },
   "dependencies": {
-    "diagramkit": "^0.2.4",
+    "@pagesmith/site": "^0.9.5",
+    "diagramkit": "^0.2.5",
     "json5": "^2.2.3"
   },
   "devDependencies": {

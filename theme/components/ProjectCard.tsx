@@ -1,4 +1,3 @@
-import { withTrailingSlash } from "@pagesmith/site";
 import type { ProjectRecord } from "../lib/projects";
 import { buildNpmVersionBadge } from "../lib/projects";
 
@@ -8,7 +7,7 @@ type Props = {
 
 export function ProjectCard({ project }: Props) {
   const { frontmatter } = project;
-  const projectUrl = withTrailingSlash(project.path);
+  const projectUrl = project.path;
 
   return (
     <li class="site-project-card">

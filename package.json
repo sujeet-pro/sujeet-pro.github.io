@@ -23,7 +23,7 @@
     "render:diagrams": "diagramkit render content/"
   },
   "dependencies": {
-    "@pagesmith/site": "^0.9.3",
+    "@pagesmith/site": "^0.9.4",
     "diagramkit": "^0.2.2",
     "json5": "^2.2.3"
   },

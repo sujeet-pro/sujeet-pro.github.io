@@ -1,4 +1,9 @@
-import { withBasePath } from "@pagesmith/site";
+import {
+  buildBreadcrumbs,
+  buildSidebarFromEntries,
+  sortByManualOrder,
+  withBasePath,
+} from "@pagesmith/site";
 import type { Heading, SiteBreadcrumb, SiteSidebarSection } from "@pagesmith/site/components";
 import type { MarkdownEntry } from "@pagesmith/site/ssg-utils";
 import type { ProjectFrontmatter, ProjectsMeta } from "../../content.config";
@@ -20,43 +25,34 @@ export function orderProjects(
   meta: ProjectsMeta | undefined,
   basePath: string,
 ): ProjectRecord[] {
-  const order = new Map((meta?.items ?? []).map((slug, index) => [slug, index]));
+  const records = entries.map((entry) => {
+    const slug = entry.contentSlug.startsWith("projects/")
+      ? entry.contentSlug.slice("projects/".length)
+      : entry.contentSlug;
 
-  return entries
-    .map((entry) => {
-      const slug = entry.contentSlug.startsWith("projects/")
-        ? entry.contentSlug.slice("projects/".length)
-        : entry.contentSlug;
+    return {
+      slug,
+      path: projectPath(basePath, slug),
+      html: entry.html,
+      headings: entry.headings,
+      frontmatter: entry.frontmatter,
+    };
+  });
 
-      return {
-        slug,
-        path: projectPath(basePath, slug),
-        html: entry.html,
-        headings: entry.headings,
-        frontmatter: entry.frontmatter,
-      };
-    })
-    .sort((left, right) => {
-      const leftOrder = order.get(left.slug);
-      const rightOrder = order.get(right.slug);
-
-      if (leftOrder !== undefined && rightOrder !== undefined) {
-        return leftOrder - rightOrder;
-      }
-
-      if (leftOrder !== undefined) return -1;
-      if (rightOrder !== undefined) return 1;
-
-      return left.frontmatter.title.localeCompare(right.frontmatter.title);
-    });
+  return sortByManualOrder(
+    records,
+    meta?.items ?? [],
+    (r) => r.slug,
+    (a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title),
+  );
 }
 
 export function buildProjectBreadcrumbs(basePath: string, projectTitle: string): SiteBreadcrumb[] {
-  return [
-    { label: "Home", path: withBasePath(basePath, "/") },
-    { label: "Projects", path: withBasePath(basePath, "/projects") },
+  return buildBreadcrumbs(basePath, [
+    { label: "Home", path: "/" },
+    { label: "Projects", path: "/projects" },
     { label: projectTitle },
-  ];
+  ]);
 }
 
 export function buildProjectsSidebarSections(
@@ -64,18 +60,11 @@ export function buildProjectsSidebarSections(
   projects: ProjectRecord[],
   title: string = "Projects",
 ): SiteSidebarSection[] {
-  return [
-    {
-      title,
-      items: [
-        { title: "Overview", path: withBasePath(basePath, "/projects") },
-        ...projects.map((project) => ({
-          title: project.frontmatter.title,
-          path: project.path,
-        })),
-      ],
-    },
-  ];
+  return buildSidebarFromEntries(
+    title,
+    projects.map((p) => ({ title: p.frontmatter.title, path: p.path })),
+    { overviewPath: withBasePath(basePath, "/projects") },
+  );
 }
 
 export function buildNpmVersionBadge(packageName: string): string {

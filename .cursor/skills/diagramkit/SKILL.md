@@ -14,7 +14,7 @@ description: Render Mermaid, Excalidraw, Draw.io, and Graphviz files to SVG or r
 
 ## Workflow
 
-1. Read `node_modules/diagramkit/llms.txt` first. Use it as the canonical quick reference for install steps, CLI defaults, config locations, and automation patterns.
+1. Read `node_modules/diagramkit/ai-guidelines/usage.md` first. Use it as the canonical quick reference for install steps, CLI defaults, config locations, and automation patterns.
 2. If `diagramkit` is not installed yet, add it with `npm add diagramkit`.
 3. Run `npx diagramkit warmup` when the repository uses Mermaid, Excalidraw, or Draw.io diagrams. Graphviz-only repositories can skip this step.
 4. Prefer `npx diagramkit render <file-or-dir>` for manual renders. Use defaults unless the user asks otherwise: `svg`, `both`, and `.diagramkit/` outputs next to the source file.
@@ -39,5 +39,7 @@ npx diagramkit init
 
 ## References
 
-- `node_modules/diagramkit/llms.txt`
-- `node_modules/diagramkit/llms-full.txt`
+- `node_modules/diagramkit/ai-guidelines/usage.md`
+- `node_modules/diagramkit/ai-guidelines/diagram-authoring.md`
+- `node_modules/diagramkit/ai-guidelines/llms.txt`
+- `node_modules/diagramkit/ai-guidelines/llms-full.txt`

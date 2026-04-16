@@ -21,6 +21,7 @@ export default defineConfig({
       contentDirs: ["./content"],
       cssEntry: "./src/theme.css",
       pagefind: siteConfig.search?.enabled,
+      trailingSlash: siteConfig.trailingSlash ?? false,
     }),
   ],
   server: {

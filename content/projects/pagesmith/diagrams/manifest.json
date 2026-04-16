@@ -3,7 +3,7 @@
   "diagrams": {
     "architecture.mermaid": {
       "hash": "sha256:c65dbd22ebec7413",
-      "generatedAt": "2026-04-16T05:14:55.510Z",
+      "generatedAt": "2026-04-16T10:03:42.448Z",
       "outputs": [
         {
           "file": "architecture-light.svg",

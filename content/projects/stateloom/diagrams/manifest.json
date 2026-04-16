@@ -3,7 +3,7 @@
   "diagrams": {
     "architecture.mermaid": {
       "hash": "sha256:2f1daf45fab439f1",
-      "generatedAt": "2026-04-16T10:03:42.449Z",
+      "generatedAt": "2026-04-16T13:54:13.052Z",
       "outputs": [
         {
           "file": "architecture-light.svg",
@@ -20,7 +20,9 @@
           "height": 697
         }
       ],
-      "formats": ["svg"],
+      "formats": [
+        "svg"
+      ],
       "theme": "both",
       "mtimeMs": 1776207095349.9297,
       "size": 800

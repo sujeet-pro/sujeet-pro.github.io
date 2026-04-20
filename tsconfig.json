@@ -18,6 +18,8 @@
     "content.config.ts",
     "vite.config.ts",
     "lib/**/*.ts",
+    "scripts/**/*.ts",
+    "scripts/**/*.mjs",
     "src/**/*.ts",
     "src/**/*.tsx",
     "theme/**/*.ts",

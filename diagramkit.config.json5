@@ -1,4 +1,6 @@
 {
+  // Editor autocomplete + validation; ignored at runtime.
+  $schema: "./node_modules/diagramkit/schemas/diagramkit-config.v1.json",
   outputDir: "diagrams",
   defaultFormats: ["svg"],
   defaultTheme: "both",

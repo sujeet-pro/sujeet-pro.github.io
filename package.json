@@ -16,15 +16,20 @@
     "format": "vp fmt . --write",
     "format:check": "vp fmt --check",
     "check": "vp check",
+    "validate": "node --experimental-strip-types --no-warnings scripts/validate.ts",
+    "validate:content": "node --experimental-strip-types --no-warnings scripts/validate.ts --content",
+    "validate:build": "node --experimental-strip-types --no-warnings scripts/validate.ts --build",
     "test": "vp test",
     "test:watch": "vp test watch",
     "typecheck": "tsc --noEmit",
-    "check:ci": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
-    "render:diagrams": "diagramkit render content/"
+    "check:ci": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build && npm run validate",
+    "render:diagrams": "diagramkit render content/",
+    "render:diagrams:watch": "diagramkit render content/ --watch",
+    "render:diagrams:check": "diagramkit validate content/ --recursive"
   },
   "dependencies": {
-    "@pagesmith/site": "^0.9.5",
-    "diagramkit": "^0.2.5",
+    "@pagesmith/site": "^0.9.8",
+    "diagramkit": "^0.3.2",
     "json5": "^2.2.3"
   },
   "devDependencies": {

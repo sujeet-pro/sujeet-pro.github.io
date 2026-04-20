@@ -2,29 +2,29 @@
   "version": 2,
   "diagrams": {
     "architecture.mermaid": {
-      "hash": "sha256:7e4ea11f6d408896",
-      "generatedAt": "2026-04-20T04:34:57.538Z",
+      "hash": "sha256:19143f67aaad9e70",
+      "generatedAt": "2026-04-20T13:39:20.941Z",
       "outputs": [
         {
           "file": "architecture-light.svg",
           "format": "svg",
           "theme": "light",
-          "width": 1321.921875,
-          "height": 343
+          "width": 659.921875,
+          "height": 710
         },
         {
           "file": "architecture-dark.svg",
           "format": "svg",
           "theme": "dark",
-          "width": 1321.921875,
-          "height": 343
+          "width": 659.921875,
+          "height": 710
         }
       ],
       "formats": [
         "svg"
       ],
       "theme": "both",
-      "mtimeMs": 1776588332769.077,
+      "mtimeMs": 1776692325478.377,
       "size": 611
     }
   }

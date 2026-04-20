@@ -33,8 +33,7 @@ body {
   color: var(--color-text-muted);
 }
 
-.site-page-intro h1,
-.site-project-hero h1 {
+.site-page-intro h1 {
   margin: 0;
   line-height: 1.15;
 }
@@ -60,9 +59,6 @@ body {
 
 /* Listing */
 .site-page-intro,
-.site-project-hero,
-.site-package-section,
-.site-markdown-section,
 .site-project-listing {
   display: grid;
   gap: 1rem;
@@ -342,10 +338,6 @@ body {
   display: block;
   width: auto;
   height: 20px;
-}
-
-.site-markdown-section .prose {
-  max-width: 78ch;
 }
 
 @media (max-width: 640px) {

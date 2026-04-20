@@ -16,7 +16,7 @@ export type ProjectRecord = {
   frontmatter: ProjectFrontmatter;
 };
 
-export function projectPath(basePath: string, slug: string): string {
+function projectPath(basePath: string, slug: string): string {
   return withBasePath(basePath, `/projects/${slug}`);
 }
 

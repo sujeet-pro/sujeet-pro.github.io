@@ -114,9 +114,7 @@ export default function ProjectPage({
           ) : null}
         </header>
 
-        <section class="site-markdown-section">
-          <div class="prose" innerHTML={content} />
-        </section>
+        <div class="prose" innerHTML={content} />
       </PageShell>
     </SiteDocument>
   );

@@ -7,11 +7,13 @@ A portfolio site for Sujeet Jaiswal's open source projects, built with `@pagesmi
 - `npm run dev` - start the Vite+ + Pagesmith SSG dev server
 - `npm run build` - build the static site to `dist/`
 - `npm run preview` - preview the built site
-- `npm run check` - run OXC format/lint checks plus type-aware TypeScript checking
-- `npm run lint` - lint the project with OXC
-- `npm run format` - format the project with OXC
-- `npm test` - run the Vitest suite through Vite+
+- `npm run check` - run vite-plus format/lint checks plus type-aware TypeScript checking
+- `npm run lint` - lint the project with vite-plus
+- `npm run format` - format the project with vite-plus
+- `npm test` - run the test suite through vite-plus
 - `npm run typecheck` - run the TypeScript compiler in no-emit mode
+- `npm run validate` - composed validator (content + build output + portfolio cross-references)
+- `npm run render:diagrams` - render every diagram source under `content/`
 
 ## Architecture
 

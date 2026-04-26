@@ -107,7 +107,7 @@ const Json5Loader: Loader = {
   kind: "data",
   extensions: [".json5"],
   async load(filePath) {
-    return JSON5.parse(readFileSync(filePath, "utf-8")) as LoaderResult;
+    return { data: JSON5.parse(readFileSync(filePath, "utf-8")) as Record<string, unknown> };
   },
 };
 

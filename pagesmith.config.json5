@@ -23,7 +23,7 @@
     endYear: null,
   },
   search: {
-    enabled: true,
+    enabled: false,
     showImages: false,
     showSubResults: true,
   },

@@ -1,7 +1,6 @@
 import {
   buildBreadcrumbs,
   buildSidebarFromEntries,
-  sortByManualOrder,
   withBasePath,
 } from "@pagesmith/site";
 import type { Heading, SiteBreadcrumb, SiteSidebarSection } from "@pagesmith/site/components";
@@ -39,12 +38,18 @@ export function orderProjects(
     };
   });
 
-  return sortByManualOrder(
-    records,
-    meta?.items ?? [],
-    (r) => r.slug,
-    (a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title),
-  );
+  if (meta?.orderBy === "manual") {
+    const itemIndex = new Map(meta.items.map((slug, i) => [slug, i]));
+    records.sort((a, b) => {
+      const rankA = itemIndex.get(a.slug) ?? Infinity;
+      const rankB = itemIndex.get(b.slug) ?? Infinity;
+      if (rankA !== rankB) return rankA - rankB;
+      return a.frontmatter.title.localeCompare(b.frontmatter.title);
+    });
+  } else {
+    records.sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title));
+  }
+  return records;
 }
 
 export function buildProjectBreadcrumbs(basePath: string, projectTitle: string): SiteBreadcrumb[] {

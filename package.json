@@ -28,7 +28,7 @@
     "render:diagrams:check": "diagramkit validate content/ --recursive"
   },
   "dependencies": {
-    "@pagesmith/site": "^0.9.9",
+    "@pagesmith/site": "^0.10.0",
     "diagramkit": "^0.3.3",
     "json5": "^2.2.3"
   },
